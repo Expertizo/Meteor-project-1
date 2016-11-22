@@ -1,0 +1,30 @@
+<template name="home">
+      {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{>sideNav}}
+            <div class='container'>
+                <a class="btn-floating btn-large waves-effect waves-light red bottom"><i class="material-icons">add</i></a>
+            </div>
+         </div>
+         <div id="modal1" class="modal">
+             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+            </div>
+             {{>login}}
+        </div>
+  <!-- END WRAPPER -->
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+  </div>
+</template>

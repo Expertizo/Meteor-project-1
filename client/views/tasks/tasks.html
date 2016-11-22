@@ -1,0 +1,83 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->            <!-- START CONTENT -->
+<template name='tasks'>
+     {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{>sideNav}}
+   <section id="content">
+
+        <!--breadcrumbs start-->
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+          <div class="container">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">Tasks</h5>
+                <ol class="breadcrumb">
+                  <li><a href="index.html">Dashboard</a>
+                  </li>
+                  <li><a href="#">Pages</a>
+                  </li>
+                  <li class="active">Tasks</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+        <!--breadcrumbs end-->
+        <!--start container-->
+          <div class="container">
+             <form class='tasks-form'>
+                <div class='box'>
+                    <input type='text' class='inputs' name='title' placeholder='Title' required>
+                </div>
+                <div class='box'>
+                    <input type='text' class='inputs' name='task_type' placeholder='Task Type' required>
+                </div>
+                <div class='box'>
+                    <input type='text' class='inputs' name='status' placeholder='Status' required>
+                </div>
+                <div class='box'>
+                    <input type='number' class='inputs' name='assigned_person' placeholder='Assigned person' required>
+                </div>
+                <div class='box'>
+                    <input type='date' class='inputs' name='due_date' placeholder='Due Date' required>
+                </div>
+                <div class='box'>
+                    <input type='text' class='inputs' name='project_name' placeholder='Project Name' required>
+                </div>
+                <div class='box'>
+                    <input type='text' class='inputs' name='subtask' placeholder='Subtask' required>
+                </div>
+                <div class='box'>
+                    <input type='submit' class='button' name='submit' value='Submit'>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div id="modal1" class="modal">
+             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+            </div>
+             {{>login}}
+        </div>
+  <!-- END WRAPPER -->
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+      </div>
+</template>

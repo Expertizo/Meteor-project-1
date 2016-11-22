@@ -1,0 +1,49 @@
+<template name="sideNav">
+<!-- START LEFT SIDEBAR NAV-->
+           <aside id="left-sidebar-nav" >
+                <ul id="slide-out" class="side-nav fixed leftside-navigation" >
+                    <li class="user-details cyan darken-2" >
+                        <div class="row">
+                            <div class="col col s8 m8 l8">
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold"><a href="/" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                    </li>
+                     <li class="bold"><a href="{{pathFor 'sites'}}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Sites</a>
+                    </li>
+                    <li class="bold"><a href="{{pathFor 'contacts'}}" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Contacts</a>
+                    </li>
+                    <li class="bold"><a href="{{pathFor 'phone_numbers'}}" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Phone Numbers </a>
+                    </li>
+                    <li class="bold"><a href="{{pathFor 'assets'}}" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Assets</a>
+                    </li>
+                     <li class="bold"><a href="{{pathFor 'server_assets'}}" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Server Assets</a>
+                    </li>
+                   <li class="bold"><a class="collapsible-header  waves-effect waves-cyan" href="{{pathFor 'projects'}}"><i class="mdi-image-palette"></i> Projects</a>
+                                <div class="collapsible-body">                
+                                </div>
+                    </li>
+                    <li class="bold"><a href="{{pathFor 'tasks'}}" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Tasks</a>
+                    </li>
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan" href="{{pathFor 'subtasks'}}"><i class="mdi-editor-border-all"></i> Subtasks</a>
+                        <div class="collapsible-body">
+                                </div>
+                    </li>
+                </ul>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+</template>

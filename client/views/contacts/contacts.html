@@ -1,0 +1,120 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='contacts'>
+     {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{>sideNav}}
+
+     <section id='content'>
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+          <div class="container">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">Contacts</h5>
+                <ol class="breadcrumb">
+                  <li><a href="index.html">Dashboard</a>
+                  </li>
+                  <li><a href="#">Pages</a>
+                  </li>
+                  <li class="active">Contacts</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+
+             <div class="container">
+                <form class='contacts-form' >
+                     <div class='box'>
+                        <input type='text' class='inputs' name='first_name' placeholder='First Name' required>
+                     </div>
+                     <div class='box'>
+                        <input type='text' class='inputs' name='last_name' placeholder='Last Name'>
+                     </div>
+                     <div class='box'>
+                        <input type='text' class='inputs' name='position' placeholder='Position'>
+                     </div>
+                     <div class='box'>
+                        <input type='text' class='inputs' name='address' placeholder='Address'>
+                     </div>
+                     <div class='box'>
+                        <input type='text' class='inputs' name='city' placeholder='City'>
+                     </div>
+                     <div class='box'>
+                        <input type='text' class='inputs' name='state' placeholder='State'>
+                     </div>
+                      <div class='box'>
+                        <input type='number' class='inputs' name='zip' placeholder='ZIP' >
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='superior_title' placeholder='contact’s superior Title'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='office_phone_number' placeholder='Office Phone Number'>
+                     </div>
+                      <div class='box'>
+                        <input type='email' class='inputs' name='email' placeholder='Email'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='display_option' placeholder='Display Option'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='show_phones' placeholder='Show Phones'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='show_lines' placeholder='Show Lines'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='phone_mac_address' placeholder='Phone’s MAC address'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='DID' placeholder='DID'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='entension' placeholder='Entension'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='group' placeholder='Group'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='group_name' placeholder='Group Name'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='group_id' placeholder='Group ID'>
+                     </div>
+                      <div class='box'>
+                        <input type='text' class='inputs' name='affiliations' placeholder='Affiliations'>
+                     </div>
+                     <div class='box'>
+                        <input type='Submit' class='button' name='submit' value='Submit'>
+                     </div>
+              </form>
+        </div>
+      </div>
+      <div id="modal1" class="modal">
+             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+            </div>
+             {{>login}}
+        </div>
+  <!-- END WRAPPER -->
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+    </div>
+</template>

@@ -1,0 +1,35 @@
+/* CSS declarations go here */
+.top-left{
+ position: fixed;
+ top:0;
+ left: 0;
+}
+.main{
+	width:;
+}
+.container{
+	width: 500%;
+	overflow: hidden;
+}
+#content{
+	margin-top:50px;
+	width:100%;
+}
+.box{
+	width:1090px;
+	overflow: hidden;
+}
+select{
+	width: 100%;
+	border:none;
+	border-bottom: 2px;
+}
+.opt-btn{
+	position: fixed;
+	bottom:50px;
+	left:30px;
+}
+.form_container{
+	width:100%;
+	
+}

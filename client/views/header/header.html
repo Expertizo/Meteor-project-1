@@ -1,0 +1,29 @@
+<template name='header'>
+   <header id="header" class="page-topbar top-left">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+             <nav>
+              <div class="nav-wrapper" >
+                  <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+                  <ul class="right hide-on-med-and-down">
+                    <li class='input-field col s12' style="overflow:hidden;"><input id='search' type="text" placeholder='Search'></li>
+                    <li><a href=""><i class="material-icons">search</i></a></li>
+                    <li><a href=""><i class="material-icons">alarm </i></a></li>
+                    <li><a ><i class="material-icons">view_module</i></a></li>
+                     <li><a href=""><i class="material-icons">notifications </i></a></li>
+                     {{#if currentUser}}
+                        <li><a href="#" class="data"></a></li>
+                        <li><a href="#" class="logout">Logout</a></li>
+                         <li class="collection-item avatar" style='overflow:hidden;'>
+                            <a><img src="images/avatar.jpg" alt="" height='40' width='40' class="circle" style='margin-top:12px;'></a>
+                        </li>
+                    {{else}}
+                        <li><a href="{{pathFor route='signup'}}">Register</a></li>
+                        <li><a class="waves-effect waves-light btn modal-trigger transparent" href="#modal1">SignIn</a></li>
+                    {{/if}}
+                  </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+  </template>
