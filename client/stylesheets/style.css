@@ -17,6 +17,9 @@
 body {
   background-color: #fcfcfc;
 }
+.accounts-dialog{
+    width: 310px;
+}
 #main,
 footer {
   padding-left: 240px;
