@@ -1,6 +1,7 @@
 
 // server/seed.js
 Meteor.startup(function() {
+    
     if (Sites.find().count() < 1) {
         var sites = [
             {
@@ -28,9 +29,20 @@ Meteor.startup(function() {
                 monthly_service_revenue: 100
             }
         ];
-
+     
         sites.forEach(function(site) {
             Sites.insert(site);
         });
     }
+    
+    
+    // Accounts.createUser({
+    //     role: "admin",
+    //     email: "admin@admin.com",
+    //     user_name: "admin",
+    //     password: "admin",
+        
+    // });
+ 
 });
+   

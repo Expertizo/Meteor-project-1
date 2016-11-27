@@ -19,9 +19,15 @@
                      <li><a href=""><i class="material-icons">notifications </i></a></li>
                      {{#if currentUser}}
                         <li><a href="#" class="data"></a></li>
+                       
+                        {{#if admin}}
+                        <li>Wellcome To Admin</li>
+                        {{/if}}
+                        
                         <li><a href="#" class="logout">Logout</a></li>
-                         <li class="collection-item avatar" style='overflow:hidden;'>
+                        <li class="collection-item avatar" style='overflow:hidden;'>
                             <a><img src="images/avatar.jpg" alt="" height='40' width='40' class="circle" style='margin-top:12px;'></a>
+                            
                         </li>
                     {{else}}
                         <li><a href="{{pathFor route='signup'}}">Register</a></li>
