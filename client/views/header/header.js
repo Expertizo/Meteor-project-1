@@ -7,13 +7,6 @@ Template.home.events({
 });
 Template.header.helpers({
        admin: function() {
-        
-        if(Meteor.users.findOne({_id: Meteor.userId()})){
-            if(Meteor.userId()=="vK7gASLnz29hXATpW"){
-            return true;
-            }
-        }else{
-            return false;
-        }
-           }
+          return Roles.userIsInRole(Meteor.userId(), 'admin');
+       }
 });

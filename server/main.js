@@ -36,13 +36,18 @@ Meteor.startup(function() {
     }
     
     
-    // Accounts.createUser({
-    //     role: "admin",
-    //     email: "admin@admin.com",
-    //     user_name: "admin",
-    //     password: "admin",
+   if(!Meteor.users.findOne({roles: "admin"})){
+   
+       Accounts.createUser({
+        role: "admin",
+        email: "admin@admin.com",
+        user_name: "admin",
+        password: "admin",
         
-    // });
- 
+    });
+        Roles.addUsersToRoles(Meteor.users.findOne({email: Accounts.email}),'admin');
+    }
+  
+  
 });
    
