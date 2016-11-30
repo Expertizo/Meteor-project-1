@@ -36,6 +36,20 @@
           </div>
         </div>
     </section>
+    
+    <table class="highlight">
+        <thead>
+        <tr>
+            <th>Companay Name</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        {{#each tables}}
+            {{> tab}}
+        {{/each}}
+    </table>
         <!--breadcrumbs end-->
         <!--start container-->
         <div class="container">
@@ -58,4 +72,14 @@
         });
     </script>
     </div>
+</template>
+
+<template name="tab">
+    <tr>
+        <td>{{parent_company}}</td>
+        <td>{{account_name}}</td>
+        <td>{{location_name}}</td>
+        <td>{{address}}</td>
+        
+    </tr>
 </template>
