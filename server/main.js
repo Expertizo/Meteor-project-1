@@ -83,7 +83,7 @@ Meteor.startup(function() {
                 location_name: 'America',
                 account_type: 'MDU',
                 type: 'Office',
-                address: 'Newyork City, America',
+                address: 'Newyork, America',
                 office_hours: '9 AM to 5 PM',
                 monthly_service_review: 100,
                 monthly_service_revenue: 200
@@ -302,6 +302,9 @@ Meteor.startup(function() {
   
 
 });
-  Meteor.publish("sites", function () {
-      return Sites.find({},{limit: 10});
+  Meteor.publish("sites", function (lmt) {
+      return Sites.find({},{limit: lmt});
+  })
+  Meteor.publish("sites", function (name) {
+      return Sites.find({account_name: name});
   })
