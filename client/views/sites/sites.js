@@ -1,6 +1,6 @@
 var lmt = 5;
-Template.sites.onRendered(function() {
-  console.log('onRendered');
+Template.sites.onCreated(function() {
+  console.log('onCreated');
   Meteor.subscribe("sites",lmt);
  //  this.data= {};
   this.result = new ReactiveVar();
@@ -11,11 +11,10 @@ Template.sites.helpers({
     tables: function () {
         return Sites.find();
     },
-    data: function () {
-        console.log("Helper Console");
-       console.log(Template.instance());
-        // return Template.instance().result.get();
-         return false;    
+    searchData: function (self) {
+        console.log('Template---------------');
+        console.log(Template.instance().result.get());
+        return Template.instance().result.get();
 }
 });
 
@@ -33,11 +32,7 @@ Template.sites.events({
     // }
     'keyup input': function(event,template) {
         var val = event.target.value;
-        // console.log(val);
-        Meteor.call("search",val,function(error,response) {
-            // console.log("events");
-            // console.log(template);
-          //console.log(template.instance());   
+        Meteor.call("search", val, function(error,response) {
          template.result.set(response);
      });
     }
