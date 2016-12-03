@@ -305,6 +305,12 @@ Meteor.startup(function() {
   Meteor.publish("sites", function (lmt) {
       return Sites.find({},{limit: lmt});
   })
-  Meteor.publish("sites", function (name) {
-      return Sites.find({account_name: name});
-  })
+//   Meteor.publish("sites", function (name) {
+//       return Sites.find({account_name: name});
+//   })
+Meteor.methods({
+    'search': function(Kashif) {
+      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}).fetch());
+        return Sites.find({ account_name: {$regex: /Kashif/}}).fetch();
+    }
+});
