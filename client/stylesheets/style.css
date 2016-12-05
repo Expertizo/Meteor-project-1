@@ -20,6 +20,12 @@ body {
 .accounts-dialog{
     width: 310px;
 }
+#select{
+    width: 200px;
+    display: inline;
+    position: absolute;
+    margin-left: 170px;
+}
 #main,
 footer {
   padding-left: 240px;

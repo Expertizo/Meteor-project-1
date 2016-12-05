@@ -4,6 +4,8 @@ Template.sites.onCreated(function() {
   Meteor.subscribe("sites",lmt);
  //  this.data= {};
   this.result = new ReactiveVar();
+  this.load = new ReactiveVar();
+  
   console.log(this);
 });
 
@@ -15,25 +17,41 @@ Template.sites.helpers({
         console.log('Template---------------');
         console.log(Template.instance().result.get());
         return Template.instance().result.get();
-}
+    },
+    loadBtn: function () {
+        
+        console.log("load helpers");
+        console.log(Template.instance().load.get());
+        return Template.instance().load.get();
+             
+    }
+    
 });
 
 Template.sites.events({
-    'click #load': function () {
+    'click #load': function (e,template) {
         lmt += 5;
-        console.log(lmt);
+        var clientTotal = Sites.find().count(); //5
+        Meteor.call("count",clientTotal,function(err,response) {
+            template.load.set(response);
+        });
+      
         return Meteor.subscribe("sites",lmt); 
-
-    },
-    // 'click btn_search': function (event) {
-    //     var value = event.target.search_field.value;
-    //     console.log(value);
-    //     return Meteor.subscribe("sites", value);
-    // }
+     },
     'keyup input': function(event,template) {
-        var val = event.target.value;
-        Meteor.call("search", val, function(error,response) {
-         template.result.set(response);
-     });
-    }
+        val = event.target.value;
+       Meteor.call("search", val, function(error,response) {
+        template.result.set(response);
+            
+        });
+
+     },
+     'change #select': function(event,template) {
+             value  = event.target.value;
+           Meteor.call("search_status", value, function(err,res) {
+            template.result.set(res);
+            
+        });
+         
+     }
 });

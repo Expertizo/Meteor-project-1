@@ -223,7 +223,7 @@ Meteor.startup(function() {
                 {
                 parent_company: 'Code Pacific',
                 account_name: 'Nasrullah khan',
-                account_status: 'Active',
+                account_status: 'Disable',
                 location_name: 'India',
                 account_type: 'MDU',
                 type: 'Office',
@@ -235,7 +235,7 @@ Meteor.startup(function() {
                 {
                 parent_company: 'Code Pacific',
                 account_name: 'Ahmed Raza',
-                account_status: 'Active',
+                account_status: 'Pending',
                 location_name: 'Pakistan',
                 account_type: 'MDU',
                 type: 'Office',
@@ -309,8 +309,44 @@ Meteor.startup(function() {
 //       return Sites.find({account_name: name});
 //   })
 Meteor.methods({
-    'search': function(Kashif) {
-      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}).fetch());
-        return Sites.find({ account_name: {$regex: /Kashif/}}).fetch();
+    'search': function(val) {
+      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+        // return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+        return Sites.find({
+            $or: [
+                {parent_company: {$regex: val,$options: '-i'}},
+                {account_name: {$regex: val,$options: '-i'}},
+                {account_status: {$regex: val,$options: '-i'}},
+                {location_name: {$regex: val,$options: '-i'}},
+                {account_type: {$regex: val,$options: '-i'}},
+                {type: {$regex: val,$options: '-i'}},
+                {address: {$regex: val,$options: '-i'}},
+                {office_hours: {$regex: val,$options: '-i'}},
+                {monthly_service_review: {$regex: val,$options: '-i'}},
+                {monthly_service_revenue: {$regex: val,$options: '-i'}}
+                
+            ]
+        }).fetch();
+        
+    },
+    'search_status': function(val) {
+      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+        // return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+        return Sites.find({account_status: val}).fetch();
+        
+    },
+    'count': function(clientCount){
+        var serverCount = Sites.find().count(); //23
+        console.log("Client....");
+        console.log(clientCount);
+        console.log("Server....");
+         console.log(serverCount);
+         
+            if(clientCount == serverCount){
+                console.log("comparing....");
+                return true;
+            }else{
+                return false;
+           }
     }
 });
