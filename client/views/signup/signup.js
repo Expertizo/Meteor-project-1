@@ -41,8 +41,10 @@ Template.signup.events({
 
 		});
 		$('.signup')[0].reset();
-		return false;
+	    Router.go('home');
+    	return false;
 	}
+        
 });
 
 //trim inputs

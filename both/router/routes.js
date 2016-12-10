@@ -47,4 +47,8 @@ Router.map(function () {
         path: '/header',
         template: 'header'
     });
+    this.route('admin', {
+        path: '/admin',
+        template: 'Owner'
+    });
 })

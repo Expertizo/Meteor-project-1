@@ -304,7 +304,11 @@ Meteor.startup(function() {
 });
   Meteor.publish("sites", function (lmt) {
       return Sites.find({},{limit: lmt});
-  })
+  });
+  Meteor.publish("AdminLogin", function () {
+      return Sites.findOne({'emails.address': "admin@admin.com"});
+  });   
+    
 //   Meteor.publish("sites", function (name) {
 //       return Sites.find({account_name: name});
 //   })
@@ -332,6 +336,7 @@ Meteor.methods({
     'search_status': function(val) {
       //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
         // return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+       console.log(Sites.find({account_status: val}).fetch());
         return Sites.find({account_status: val}).fetch();
         
     },
@@ -348,5 +353,37 @@ Meteor.methods({
             }else{
                 return false;
            }
+    },
+    'admin_login_e': function(email){
+     //   console.log(Meteor.users.find({'emails.address': email, roles: 'admin'}));
+        // if(Authurized==true){
+        //     alert("Wellome To Admin");
+        // }else{
+        //     alert("Clients are not allowed here");
+        // }
+//       return Meteor.users.find({},{email: email,password: pass,roles: 'admin'});
+      // var query = Meteor.users.findOne({'emails.address':email});
+    //    if(query){
+    //      var A_email = query.emails[0].address;
+    //      var A_pass = query.services.password.bcrypt;
+      
+    // console.log("==================================================");
+    //     console.log(Meteor.users.find({'emails.address': email, roles: 'admin'})).fetch();
+
+    // return Meteor.users.find({'emails.address': email, roles: 'admin'});
+      
+     return Meteor.users.findOne({'emails.address': email, roles: 'admin'});
+        
     }
 });
+
+
+
+
+
+
+
+
+
+
+
