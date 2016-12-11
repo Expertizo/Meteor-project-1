@@ -1,0 +1,58 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='Owner'>
+    {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{#if currentUser}}
+            {{>sideNav}}
+            <h1>Admin Dashboard</h1>
+            {{else}}
+            {{> admin_login}}
+            {{/if}}
+  <!-- END WRAPPER -->
+  
+        </div>
+    </div>
+    
+        <div id="modal1" class="modal">
+             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+            </div>
+             {{> login}}
+             
+        </div>
+  <!-- END WRAPPER -->
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+
+</template>
+<template name="admin_login">
+    <section id='content' class='adminSection'>
+      <fieldset>
+          <legend>Admin Login</legend>
+          <form class="adminForm">
+              <label>Email</label>
+                 <input type="text" name="email" required>
+              <label>Password</label>
+                 <input type="password" name="pass" required>
+                 <!--waves-effect waves-light btn -->
+              <input class="adminLoginBtn" type="submit" style="float: right;" value="Login"  >
+          </form>
+      </fieldset>
+      </section>
+</template>

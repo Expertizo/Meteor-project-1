@@ -1,7 +1,10 @@
 <template name='login'>
+    {{>header}}
  <div class="modal-content">
               
-               <div class="row">
+               <div class="row" id="login_container">
+                <fieldset>
+                    <legend>Login</legend>
                 <form class="login">
                   <div class="row">
                     <div class="input-field col s12">
@@ -16,9 +19,10 @@
                     </div>
                   </div>
                   <div class='row'>
-                      <input type='submit' value='Submit' name='submit' class='btn'>
+                      <input type='submit' style="float: right;margin-right:10px;" value='Login' name='submit' class='btn'>
                   </div>
                 </form>
+                </fieldset>
             </div>
           </div>
 </template>
