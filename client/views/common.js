@@ -1,6 +1,9 @@
 Meteor.startup(function(){
-	AcountsEntery.config({
-		homeRoute: '/',
+
+    
+    AcountsEntery.config({
+	
+    	homeRoute: '/',
 		dashboardRoute: '/',
 		passswordSignupFields: 'USERNAME_AND_EMAIL',
 		passswordSignupFields: 'IMAGE'
