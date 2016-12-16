@@ -1,6 +1,7 @@
 var routesForUnloggedUsers = [
-    // 'login',
-    // 'register',
+    'login',
+    'signup',
+    'admin'
 ];
 
 var isLoggedIn = function () {
@@ -13,6 +14,6 @@ var isLoggedIn = function () {
     }
 };
 
-// Router.onBeforeAction(isLoggedIn, {
-//     except: routesForUnloggedUsers
-// });
+Router.onBeforeAction(isLoggedIn, {
+    except: routesForUnloggedUsers
+});
