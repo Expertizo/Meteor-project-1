@@ -4,282 +4,71 @@ Meteor.startup(function() {
     
     if (Sites.find().count() < 1) {
         var sites = [
-            {
-                parent_company: 'Code Pacific',
-                account_name: 'Love Behl',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Pathankot, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-            {
-                parent_company: 'Code Pacific',
-                account_name: 'Mohammad Kashif Sulaiman',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Karachi, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 140,
-                monthly_service_revenue: 100
-            },
+            
                 {
-                parent_company: 'Code Pacific',
-                account_name: 'Ahmed',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'karachi, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 160,
-                monthly_service_revenue: 200
-            },
+                    address: 'Saddar Karachi',
+                    main_phone_number: '3222228510',
+                    fax_number: '18818548',
+                    answering_server_number:'4481',
+                    owner:'Ahmed Raza Qadri',
+                    reseller: 'Negview',
+                    management: 'BlueStar',
+                    manager_name: 'Kashif',
+                    manager_phone_number: '486451648(cell)',
+                    daylight_saving_time: 'yes',
+                    time_zone: 'Central',
+                    office_hours: '08:00 17:00',
+                    internet_provider: 'Comcast',
+                    I_account_numner: '545456854',
+                    I_password: '123',
+                    I_phone_number: '018485485',
+                    I_public_ip_address: '47.548.485.42',
+                    IT_service_provider: 'Absam',
+                    IT_phone_number: '03484818484'
+                },
                 {
-                parent_company: 'Code Pacific',
-                account_name: 'Adam',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Mumbai, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 200,
-                monthly_service_revenue: 200
-            },
+                    address: 'Bahadurabad Karachi',
+                    main_phone_number: '32257489',
+                    fax_number: '18818548',
+                    answering_server_number:'4481',
+                    owner:'Kashif Sulaiman',
+                    reseller: 'Negview',
+                    management: 'BlueStar',
+                    manager_name: 'Kashif',
+                    manager_phone_number: '486451648(cell)',
+                    daylight_saving_time: 'yes',
+                    time_zone: 'Central',
+                    office_hours: '12:00 17:30',
+                    internet_provider: 'Comcast',
+                    I_account_numner: '545456854',
+                    I_password: '123',
+                    I_phone_number: '018485485',
+                    I_public_ip_address: '47.548.485.42',
+                    IT_service_provider: 'Absam',
+                    IT_phone_number: '03484818484'
+                },
                 {
-                parent_company: 'Code Pacific',
-                account_name: 'Hussain',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Lahore, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 190,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Qasim',
-                account_status: 'Active',
-                location_name: 'UAE',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Ajman, Uae',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Hardword',
-                account_status: 'Active',
-                location_name: 'America',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Newyork, America',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Nazar Iqbal',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Goa, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 200,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Sukhdeep Singh,',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Gujrat, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 250
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Charly',
-                account_status: 'Active',
-                location_name: 'Canada',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'GreenTown, Canada',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 160,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Ramesh',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Dheli, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Iqbal',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Bareli, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Kamran Qadri',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Karachi, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Yaseen',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Islamabad, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'David',
-                account_status: 'Active',
-                location_name: 'America',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Washington, America',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Ameet Kumar',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Mumbai, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Suresh',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Goa, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Akber ud deen',
-                account_status: 'Active',
-                location_name: 'Bangladesh',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Chitakong , Bangladesh',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Nasrullah khan',
-                account_status: 'Disable',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Pathankot, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Ahmed Raza',
-                account_status: 'Pending',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Multan, Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Huzaifa',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Gujrat, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Sardar',
-                account_status: 'Active',
-                location_name: 'India',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Mumbai, India',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            },
-                {
-                parent_company: 'Code Pacific',
-                account_name: 'Haider Ali',
-                account_status: 'Active',
-                location_name: 'Pakistan',
-                account_type: 'MDU',
-                type: 'Office',
-                address: 'Quetta , Pakistan',
-                office_hours: '9 AM to 5 PM',
-                monthly_service_review: 100,
-                monthly_service_revenue: 200
-            }
+                    address: 'Pathankot India',
+                    main_phone_number: '420118541',
+                    fax_number: '18818548',
+                    answering_server_number:'4481',
+                    owner:'Love Shine',
+                    reseller: 'Negview',
+                    management: 'BlueStar',
+                    manager_name: 'Kashif',
+                    manager_phone_number: '486451648(cell)',
+                    daylight_saving_time: 'yes',
+                    time_zone: 'Central',
+                    office_hours: '10:00 15:00',
+                    internet_provider: 'Comcast',
+                    I_account_numner: '545456854',
+                    I_password: '123',
+                    I_phone_number: '018485485',
+                    I_public_ip_address: '47.548.485.42',
+                    IT_service_provider: 'Absam',
+                    IT_phone_number: '03484818484'
+                }
+            
         ];
      
         sites.forEach(function(site) {
@@ -308,38 +97,53 @@ Meteor.startup(function() {
   Meteor.publish("AdminLogin", function () {
       return Sites.findOne({'emails.address': "admin@admin.com"});
   });   
-    
+  Meteor.publish('SelectedItem', function (id) {
+//Make sure you check your inputs you dont want someone sending in an object like { $ne : '' } and publishing everything
+	return Sites.findOne({_id : id });
+});
 //   Meteor.publish("sites", function (name) {
 //       return Sites.find({account_name: name});
 //   })
 Meteor.methods({
+    //search methods for sites search
     'search': function(val) {
-      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
-        // return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+       // console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+       //  return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
         return Sites.find({
             $or: [
-                {parent_company: {$regex: val,$options: '-i'}},
-                {account_name: {$regex: val,$options: '-i'}},
-                {account_status: {$regex: val,$options: '-i'}},
-                {location_name: {$regex: val,$options: '-i'}},
-                {account_type: {$regex: val,$options: '-i'}},
-                {type: {$regex: val,$options: '-i'}},
                 {address: {$regex: val,$options: '-i'}},
+                {main_phone_number: {$regex: val,$options: '-i'}},
+                {fax_number: {$regex: val,$options: '-i'}},
+                {answering_server_number: {$regex: val,$options: '-i'}},
+                {owner: {$regex: val,$options: '-i'}},
+                {reseller: {$regex: val,$options: '-i'}},
+                {management: {$regex: val,$options: '-i'}},
+                {manager_name: {$regex: val,$options: '-i'}},
+                {manager_phone_number: {$regex: val,$options: '-i'}},
+                {daylight_saving_time: {$regex: val,$options: '-i'}},
+                {time_zone: {$regex: val,$options: '-i'}},
                 {office_hours: {$regex: val,$options: '-i'}},
-                {monthly_service_review: {$regex: val,$options: '-i'}},
-                {monthly_service_revenue: {$regex: val,$options: '-i'}}
+                {fax_number: {$regex: val,$options: '-i'}},
+                {internet_provider: {$regex: val,$options: '-i'}},
+                {I_account_numner: {$regex: val,$options: '-i'}},
+                {I_password: {$regex: val,$options: '-i'}},
+                {I_phone_number: {$regex: val,$options: '-i'}},
+                {I_public_ip_address: {$regex: val,$options: '-i'}},
+                {IT_service_provider: {$regex: val,$options: '-i'}},
+                {IT_phone_number: {$regex: val,$options: '-i'}}
                 
             ]
         }).fetch();
         
     },
     'search_status': function(val) {
-      //  console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
-        // return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
-       console.log(Sites.find({account_status: val}).fetch());
-        return Sites.find({account_status: val}).fetch();
+        //console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+         return Sites.find({office_hours: {$regex: val,$options: '-i'}}).fetch();
+      // console.log(Sites.find({account_status: val}).fetch());
+      //  return Sites.find({office_hours: val}).fetch();
         
     },
+    
     'count': function(clientCount){
         var serverCount = Sites.find().count(); //23
         console.log("Client....");

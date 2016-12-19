@@ -1,0 +1,121 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='details'>
+    {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+             {{>sideNav}}
+            <!--{{#each data}}
+                <h1>{{owner}}</h1>
+            {{/each}}
+            -->
+           <table class="highlight bordered centered Table_detail" id="Site_table" >
+                <thead>
+                    <th colspan="6" style="text-align:center;font-size: 25px;color:#e67e22;border-bottom: solid 2px #16a085;">Site Detail</th>
+                    
+                </thead>
+                <br>
+                <thead>
+                   
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Owner</th>
+                        <th>Reseller</th>
+                        <th>Management</th>
+                        <th>Manager Name</th>
+                        <th>Manager Phone</th>
+                        <th>Office Hours</th>
+                    </tr>
+                </thead>
+                {{#each show}}
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{owner}}</td>
+                        <td style="text-align: center;">{{reseller}}</td>
+                        <td style="text-align: center;">{{management}}</td>
+                        <td style="text-align: center;">{{manager_name}}</td>
+                        <td style="text-align: center;">{{manager_phone_number}}</td>
+                        <td style="text-align: center;">{{office_hours}}</td>
+                    </tr>
+                 
+                    <br>
+                     <thead>
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Fax Number</th>
+                        <th>Answering Server Number</th>
+                        <th>Time Zone</th>
+                        <th>Daylight Saving Time</th>
+                    </tr>
+                </thead>
+                    
+                
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{address}}</td>
+                        <td style="text-align: center;">{{main_phone_number}}</td>
+                        <td style="text-align: center;">{{fax_number}}</td>
+                        <td style="text-align: center;">{{answering_server_number}}</td>
+                        <td style="text-align: center;">{{time_zone}}</td>
+                        <td style="text-align: center;">{{daylight_saving_time}}</td>
+                    </tr>
+                    
+                    
+                    <br>
+                    
+                     <thead>
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Internet Provider</th>
+                        <th>Internet Account Number</th>
+                        <th>Internet Password</th>
+                        <th>Internet Phone Number</th>
+                        <th>Public IP Address</th>
+                        <th>IT Service Provider</th>
+                        
+                    </tr>
+                </thead>
+                    
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{internet_provider}}</td>
+                        <td style="text-align: center;">{{I_account_numner}}</td>
+                        <td style="text-align: center;">{{I_password}}</td>
+                        <td style="text-align: center;">{{I_phone_number}}</td>
+                        <td style="text-align: center;">{{I_public_ip_address}}</td>
+                        <td style="text-align: center;">{{IT_service_provider}}</td>
+                        
+                        
+                    </tr>
+                        
+                        <br>
+                        
+                    <thead  style="border:none;">
+                        <tr>
+                            <th style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">IT Phone Number</th>
+                        </tr>
+                    </thead>
+                                        
+                    <tr style="font-size: 17px;">
+                        <td style="text-align: center;border-bottom: solid 1px #2c3e50;">{{IT_phone_number}}</td>
+                    </tr>   
+                {{/each}}
+          </table>
+        </div>
+        <!--{{#each show}}
+        <h1>{{owner}}</h1>
+        {{/each}}-->
+    </div>
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+</template>

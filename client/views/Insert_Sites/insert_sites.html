@@ -1,0 +1,83 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='insertSite'>
+    {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+             {{>sideNav}}
+             <div id="form_box">
+                 <fieldset>
+                     <legend>Add Site</legend>
+                     <form>
+                         <table id="addSiteTable">
+                             <tr>
+                                <td><label>Owner</label><input type="text" name="txtOwner" required></td>
+                                <td><label>Address</label><input type="text" name="txtAddress" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Main Phone Number</label><input type="text" name="txtMainPhoneNumber" required></td>
+                                <td><label>Fax Number</label><input type="text" name="txtFaxNumber" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Answering Server Number</label><input type="text" name="txtAnsweringServerNumber" required></td>
+                                <td><label>Management</label><input type="text" name="txtManagement" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Reseller</label><input type="text" name="txtReseller" required></td>
+                                <td><label>Manager Name</label><input type="text" name="txtManagerName" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Manager Phone Number</label><input type="text" name="txtManagerPhoneNumber" required></td>
+                                <td><label>Time Zone</label><input type="text" name="txtTimeZone" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Internet Provider</label><input type="text" name="txtInternetProvider" required></td>
+                                <td><label>Internet Account Number</label><input type="text" name="txtInternetAccountNumber" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Internet Password</label><input type="text" name="txtInternetPassword" required></td>
+                                <td><label>Internet Phone Number</label><input type="text" name="txtInternetPhoneNumber" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>Public IP Address</label><input type="text" name="txtPublicIPAddress" required></td>
+                                <td><label>IT Service Provider</label><input type="text" name="txtITServiceProvider" required></td>
+                             </tr>
+                             <tr>
+                                <td><label>IT Phone Number</label><input type="text" name="txtITPhoneNumber" required></td>
+                                <td>
+                                    <select class="browser-default" id="select_DLS" required>
+                                        <option value="" disabled selected>Confirm DayLight Saving Time</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                             </tr>
+                             <tr>
+                                <td>
+                                    <select class="browser-default" id="select_OH" required>
+                                            <option value="" disabled selected>Search By Office Hours</option>
+                                            <option value="08:00 17:00">08:00 17:00</option>
+                                            <option value="10:00 15:00">10:00 15:00</option>
+                                            <option value="12:00 17:30">12:00 17:30</option>
+                                    </select>
+                                </td>
+                                    <input type="submit" style="margin-top:20px;float:right;" value="Add Site" class="waves-effect waves-light btn">
+                             </tr>
+                             
+                         </table>
+                     </form>
+                 </fieldset>
+             </div>
+        </div>
+    </div>
+</template>

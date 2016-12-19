@@ -22,7 +22,7 @@
  
  "setupPhantom": false,
 
- "nodeVersion": "0.12.7",
+ "nodeVersion": "6.3.1",
 
  // Application name (no spaces).
  "appName": "advanta",
@@ -30,7 +30,7 @@
  // Location of app (local directory). This can reference '~' as the users home directory.
  // i.e., "app": "~/Meteor/my-app",
  // This is the same as the line below.
- "app": "D:/Sites/advanta",
+ "app": ".",
 
  // Configure environment
  // ROOT_URL must be set to your correct domain (https or http)
