@@ -48,10 +48,19 @@ Template.sites.events({
      },
      'change #select': function(event,template) {
              value  = event.target.value;
-           Meteor.call("search_status", value, function(err,res) {
-            template.result.set(res);
+             Meteor.call("search_status", value, function(err,res) {
+             template.result.set(res);
             
         });
          
      }
+});
+Template.tab.events({
+    'click .link': function() {
+        var id = this._id;
+        console.log(id)
+        //console.log(Sites.find({},{_id: id}).fetch()); 
+        Router.go('detail',{id: id}); //:_id',{_id: id});'
+    },
+   
 });

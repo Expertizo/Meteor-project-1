@@ -51,4 +51,20 @@ Router.map(function () {
         path: '/admin',
         template: 'Owner'
     });
+    this.route('detail', {
+        path: '/detail/:id',
+        template: 'details'
+    });
+    this.route('insertSite', {
+        path: '/insert_site',
+        template: 'insertSite'
+    });
+    
 })
+ // function (params) {
+        //     this.render('data',{
+        //         data: function() {
+        //             return Sites.findOne({_id: this.params.id}); 
+        //     }
+        //     });         
+        //}
