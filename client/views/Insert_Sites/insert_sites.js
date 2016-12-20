@@ -23,23 +23,23 @@ Template.insertSite.events({
         var Office_Hour = event.target.select_OH.value;
         
         console.log(Owner);
-        console.log(address );
+        console.log(address);
         console.log(Main_Phone_Number);
         console.log(Fax_Number);
         console.log(Answing_Server_Number);
         console.log(Management );
         console.log(Reseller);
         console.log(Manager_Name );
-        console.log(Manager_Phone_Number );
-        console.log(Time_Zone );
-        console.log(Internet_Provider );
+        console.log(Manager_Phone_Number);
+        console.log(Time_Zone);
+        console.log(Internet_Provider);
         console.log(Internet_Account_Number);
-        console.log(Internet_Password );
-        console.log(Internet_Phone_Number );
+        console.log(Internet_Password);
+        console.log(Internet_Phone_Number);
         console.log(Internet_Public_IP_Address);
         console.log(IT_Service_Provider);
         console.log(IT_Phone_Number);
-        console.log(DLS );
+        console.log(DLS);
         console.log(Office_Hour);
         
         Sites.insert({
