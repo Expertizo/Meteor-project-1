@@ -22,7 +22,7 @@
  
  "setupPhantom": false,
 
- "nodeVersion": "0.12.7",
+ "nodeVersion": "6.3.1",
 
  // Application name (no spaces).
  "appName": "advanta",
