@@ -1,91 +1,84 @@
-<!--================================================================================
-  Item Name: Materialize - Material Design Admin Template
-  Version: 1.0
-  Author: GeeksLabs
-  Author URL: http://www.themeforest.net/user/geekslabs
-================================================================================ -->
-<template name='phone_numbers'>
-      {{>header}}
-    <!-- END HEADER -->
-
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-    <!-- START MAIN -->
+<template name="phone_number">
+    {{>header}}
+     <!-- START MAIN -->
     <div id="main">
         <!-- START WRAPPER -->
         <div class="wrapper">
             {{>sideNav}}
-
-             <section id="content">
-
-        <!--breadcrumbs start-->
-        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
-          <div class="container">
-            <div class="row">
-              <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Phone Number</h5>
-                <ol class="breadcrumb">
-                  <li><a href="index.html">Dashboard</a>
-                  </li>
-                  <li><a href="#">Pages</a>
-                  </li>
-                  <li class="active">Phone Number</li>
-                </ol>
-              </div>
-            </div>
-          </div>
+                
+                
+             <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate" style="display:inline;" name="text_field" placeholder="Search">
+          <select class="browser-default" id="status_select">
+                <option value="" disabled selected>Search By Number Status</option>
+                <option value="Active">Active</option>
+                <option value="Deactive">Deactive</option>
+                <option value="Pending">Pending</option>
+          </select>
         </div>
-    </section>
+       
+      </div>
+         <a style="float:right;margin-top:-90px;" class="btn-floating btn-large waves-effect waves-light red bottom" href="{{pathFor 'phone_add'}}"><i class="material-icons">add</i></a>
+       
+    </form>
+  </div>   
+  
         <div class="container">
-          <form class='phone_numbers-form'>
-            <div class='box'>
-                <input type='text' class='inputs' name='carrier_name' placeholder='Carrier Name' required>
-            </div>
-            <div class='box'>
-                <input type='text' class='inputs' name='primary_server' placeholder='Primary Server' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='secondary_server' placeholder='Secondary Server' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='primary_gateway' placeholder='Primary Gateway' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='secondary_gateway' placeholder='Secondary Gateway' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='status1' placeholder='Status' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='site_name' placeholder='Site Name' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='role' placeholder='Role like what does this number do – drop down- look up or other text add ' required>
-             </div>
-             <div class='box'>
-                <input type='text' class='inputs' name='phone_history' placeholder='Phone Number History' required>
-             </div>
-             <div class='box'>
-               
-             </div>
-             <div class='box'>
-                <input type='submit' class='button' name='submit' value='Submit'>
-             </div>
-          </form>        
-        </div>
+    <table class="highlight bordered centered " id="Site_table">
+        <thead>
+        <tr style="border-bottom: solid 2px #34495e;">
+            <th>Phone Number</th>
+            <th>Status</th>
+            <th>Use</th>
+            <th>Site</th>
+            <th>Primary Server</th>
+            <th>Carrier</th>
+            <th>E911</th>
+            
+        </tr>
+        </thead>
+       {{#if searchData}}
+            <!--Hello-->
+            {{#each searchData}}
+                {{> phone_tab}}
+            {{/each}}
+        {{else}}
+        {{#each tables}}
+            {{> phone_tab}}
+        {{/each}}
+        {{/if}}
+        <!--{{#if searchData}}
+            
+            {{#each searchData}}
+                {{> tab}}
+            {{/each}}
+        {{else}}
+        {{#each tables}}
+            {{> tab}}
+        {{/each}}
+        {{/if}}-->
+    </table>
     </div>
-    <div id="modal1" class="modal">
-             <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
-            </div>
-             {{>login}}
-        </div>
-  <!-- END WRAPPER -->
-    <script>
-        $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-          $('.modal-trigger').leanModal();
-        });
-    </script>
-</div>
+  
+<!--....................Wrapper Class Ends Here..............-->
+         </div>
+    <!--.............Main Div Close Here..............-->
+    </div>
+</template>
+
+<template name="phone_tab">
+    <tr style="border-bottom: solid 1px gray; text-align: center;" >
+        <td style="text-align: center;"><a class="link">{{phone_number}}</a></td>
+        <td style="text-align: center;">{{status}}</td>
+        <td style="text-align: center;">{{use}}</td>
+        <td style="text-align: center;">{{site}}</td>
+        <td style="text-align: center;">{{primary_server}}</td>
+        <td style="text-align: center;">{{carrier}}</td>
+        <td style="text-align: center;">{{e911}}</td>
+        
+    </tr>
 </template>
