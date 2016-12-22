@@ -94,6 +94,9 @@ Meteor.startup(function() {
   Meteor.publish("sites", function (lmt) {
       return Sites.find({},{limit: lmt});
   });
+  Meteor.publish("phone_number", function () {
+      return phone_numbers.find();
+  });
   Meteor.publish("AdminLogin", function () {
       return Sites.findOne({'emails.address': "admin@admin.com"});
   });   
@@ -136,9 +139,39 @@ Meteor.methods({
         }).fetch();
         
     },
+    'phone_search': function(val) {
+       // console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+       //  return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+        return phone_numbers.find({
+            $or: [
+                // {site: {$regex: val,$options: '-i'}},
+                // {status: {$regex: val,$options: '-i'}}
+                {phone_number: {$regex: val,$options: '-i'}},
+                {site: {$regex: val,$options: '-i'}},
+                {status: {$regex: val,$options: '-i'}},
+                {use: {$regex: val,$options: '-i'}},
+                {primary_server: {$regex: val,$options: '-i'}},
+                {carrier: {$regex: val,$options: '-i'}},
+                {e911: {$regex: val,$options: '-i'}},
+                {comment: {$regex: val,$options: '-i'}},
+                {secondary_server: {$regex: val,$options: '-i'}},
+                {advanta_number: {$regex: val,$options: '-i'}},
+                {forward_number: {$regex: val,$options: '-i'}}
+                
+            ]
+        }).fetch();
+        
+    },
     'search_status': function(val) {
         //console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
          return Sites.find({office_hours: {$regex: val,$options: '-i'}}).fetch();
+      // console.log(Sites.find({account_status: val}).fetch());
+      //  return Sites.find({office_hours: val}).fetch();
+        
+    },
+    'search_phone_status': function(val) {
+        //console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+         return phone_numbers.find({status:val}).fetch();
       // console.log(Sites.find({account_status: val}).fetch());
       //  return Sites.find({office_hours: val}).fetch();
         

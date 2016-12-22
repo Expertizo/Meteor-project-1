@@ -1,0 +1,98 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='Phone_add'>
+      {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{>sideNav}}
+
+             <section id="content">
+
+        <!--breadcrumbs start-->
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+          <div class="container">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">Phone Number</h5>
+                <ol class="breadcrumb">
+                  <li><a href="index.html">Dashboard</a>
+                  </li>
+                  <li><a href="#">Pages</a>
+                  </li>
+                  <li class="active">Phone Number</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+        <div class="container">
+          <form class='phone_numbers-form'>
+            <div class='box'>
+             <label>Site</label> <input type='text' class='inputs' name='site' placeholder='Site' required>
+            </div>
+            <div class='box'>
+               <label>Phone Number</label> <input minlength="15" type='text' class='inputs' name='phone_number' placeholder='Phone Number' required>
+             </div>
+             <div class='box'>
+               <label>Status</label> <input type='text' class='inputs' name='status' placeholder='Status' required>
+             </div>
+             <div class='box'>
+               <label>Use</label> <input type='text' class='inputs' name='use' placeholder='Use' required>
+             </div>
+             <div class='box'>
+               <label>Primary Server</label> <input type='text' class='inputs' name='primary_server' placeholder='Secondary Gateway' required>
+             </div>
+             <div class='box'>
+               <label>Carrier</label> <input type='text' class='inputs' name='carrier' placeholder='Carrier' required>
+             </div>
+             <div class='box'>
+               <label>E911</label> <input type='text' class='inputs' name='e911' placeholder='E911' required>
+             </div>
+             <div class='box'>
+               <label>Comment</label> <input type='text' class='inputs' name='comment' placeholder='Comment' required>
+             </div>
+             <div class='box'>
+               <label>Secondary Server</label> <input type='text' class='inputs' name='secondary_server' placeholder='Secondary Server' required>
+             </div>
+             <div class='box'>
+               <label>Advanta Number</label> <input type='text' class='inputs' name='advanta_number' placeholder='Phone Number History' required>
+             </div>
+             <div class='box'>
+               <label>Forward Number</label> <input type='text' class='inputs' name='forward_number' placeholder='Phone Number History' required>
+             </div>
+             
+             <div class='box'>
+               
+             </div>
+             <div class='box'>
+                <input type='submit' class='button' name='submit' value='Submit'>
+             </div>
+          </form>        
+        </div>
+    </div>
+    <div id="modal1" class="modal">
+             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+            </div>
+             {{>login}}
+        </div>
+  <!-- END WRAPPER -->
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+</div>
+</template>

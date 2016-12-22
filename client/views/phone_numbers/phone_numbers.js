@@ -1,34 +1,47 @@
-Template.phone_numbers.events({
-	"submit .phone_numbers-form" : function(event) {
-		var userId = Meteor.userId();
-		if( userId == null){
-			console.log('Please Login first');
-			return false;
-		}else {
-			var carrier_name = event.target.carrier_name.value;
-			var primary_server =  event.target.primary_server.value;
-			var secondary_server = event.target.secondary_server.value;
-			var primary_gateway = event.target.primary_gateway.value;
-			var secondary_gateway = event.target.secondary_gateway.value;
-			var status = event.target.status1.value;
-			var site_name = event.target.site_name.value;
-			var role = event.target.role.value;
-			var phone_history = event.target.phone_history.value;
-			phone_numbers.insert({
-				userId: userId,
-				carrier_name:carrier_name,
-				primary_server:primary_server,
-				secondary_server:secondary_server,
-				primary_gateway:primary_gateway,
-				secondary_gateway:secondary_gateway,
-				status:status,
-				site_name:site_name,
-				role:role,
-				phone_history:phone_history,
-				CreatedAt : new Date()
-			});
-		}
-		$('.phone_numbers-form')[0].reset();
-		return false;
-	}
+Template.phone_number.onCreated(function() {
+  console.log('onCreated');
+  Meteor.subscribe("phone_number");
+ //  this.data= {};
+  this.P_result = new ReactiveVar();
+ // this.P_load = new ReactiveVar();
+  
+  console.log(this);
+});
+Template.phone_number.helpers({
+    tables: function() {
+       return phone_numbers.find(); 
+    },
+    searchData: function (self) {
+        console.log('Template---------------');
+        console.log(Template.instance().P_result.get());
+        return Template.instance().P_result.get();
+    }
+});
+Template.phone_number.events({
+     'change #status_select': function(event,template) {
+             value  = event.target.value;
+             Meteor.call("search_phone_status", value, function(err,res) {
+             template.P_result.set(res);
+           //  console.log(template.P_result.get());
+      });
+         
+     },
+    'keyup input': function(event,template) {
+        val = event.target.value;
+        Meteor.call("phone_search", val, function(err,res) {
+        
+        template.P_result.set(res);
+          
+     });
+
+     }
+});
+Template.phone_tab.events({
+       'click .link': function() {
+        var id = this._id;
+        console.log(id)
+        //console.log(Sites.find({},{_id: id}).fetch()); 
+        Router.go('phone_details',{id: id}); //:_id',{_id: id});'
+     }
+    
 });

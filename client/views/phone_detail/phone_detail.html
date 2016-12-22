@@ -1,0 +1,49 @@
+<template name="phone_details">
+    {{>header}}
+    <div id="main">
+            <div class="container">
+                {{>sideNav}}
+            </div>       
+                <div id="phone_detail_box">
+                    <table  class="highlight bordered centered Table_detail">
+                        <thead>
+                             <th colspan="6" style="text-align:center;font-size: 25px;color:#e67e22;border-bottom: solid 2px #16a085;">Phone Number Detail</th>
+                        </thead>
+                         <br>
+                        <thead style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                            <th style="text-align: center;">Phone Number</th>
+                            <th style="text-align: center;">Site</th>
+                            <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Use</th>
+                            <th style="text-align: center;">Primary Server</th>
+                            <th style="text-align: center;">Secondary Server</th>
+                        </thead>
+                        {{#each show}}
+                        <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                            <td style="text-align: center;">{{phone_number}}</td>
+                            <td style="text-align: center;">{{site}}</td>
+                            <td style="text-align: center;">{{status}}</td>
+                            <td style="text-align: center;">{{use}}</td>
+                            <td style="text-align: center;">{{primary_server}}</td>
+                            <td style="text-align: center;">{{secondary_server}}</td>
+                        </tr>
+                        <thead style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                            <th style="text-align: center;">Carrier</th>
+                            <th style="text-align: center;">E911</th>
+                            <th style="text-align: center;">Comment</th>
+                            <th style="text-align: center;">Advanta Number</th>
+                            <th style="text-align: center;">Forward Number</th>
+                        </thead>
+                        <tr  style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                            <td style="text-align: center;">{{carrier}}</td>
+                            <td style="text-align: center;">{{e911}}</td>
+                            <td style="text-align: center;">{{comment}}</td>
+                            <td style="text-align: center;">{{advanta_number}}</td>
+                            <td style="text-align: center;">{{forward_number}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>                    
+                </div>
+            
+    </div>
+</template>

@@ -11,10 +11,20 @@ Router.map(function () {
         path: '/contacts',
         template: 'contacts'
     });
-     this.route('phone_numbers', {
-        path: '/phone_numbers',
-        template: 'phone_numbers'
+     this.route('phone_add', {
+        path: '/phone_add',
+        template: 'Phone_add'
     });
+    this.route('phone_number',{
+        path: '/phone_number',
+        template: 'phone_number'
+    });
+    this.route('phone_details',{
+        path: '/phone_details/:id',
+        template: 'phone_details'
+    });
+ 
+   
       this.route('projects', {
         path: '/projects',
         template: 'projects'
