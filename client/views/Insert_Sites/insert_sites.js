@@ -1,3 +1,8 @@
+Template.insertSite.helpers({
+       admin: function() {
+          return Roles.userIsInRole(Meteor.userId(), 'admin');
+       }
+});
 Template.insertSite.events({
     
    'submit form': function(event) {

@@ -24,7 +24,10 @@ Template.sites.helpers({
         console.log(Template.instance().load.get());
         return Template.instance().load.get();
              
-    }
+    },
+    admin: function() {
+          return Roles.userIsInRole(Meteor.userId(), 'admin');
+     }
     
 });
 

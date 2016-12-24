@@ -21,7 +21,8 @@
                         <li><a href="#" class="data"></a></li>
                        
                         {{#if admin}}
-                        <li>Welcome To Admin</li>
+                        <li><b>Admin</b></li>
+                        <li><a href="{{pathFor route='signup'}}">Register</a></li>
                         {{/if}}
                         
                         <li><a href="#" class="logout">Logout</a></li>
@@ -29,8 +30,8 @@
                             <a><img src="images/avatar.jpg" alt="" height='40' width='40' class="circle" style='margin-top:12px;'></a>
                             
                         </li>
+                    
                     {{else}}
-                        <li><a href="{{pathFor route='signup'}}">Register</a></li>
                         <li><a class="waves-effect waves-light btn modal-trigger transparent" href="{{pathFor route='login'}}">SignIn</a></li>
                     {{/if}}
                   </ul>
