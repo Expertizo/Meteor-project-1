@@ -19,10 +19,11 @@
                      <li><a href=""><i class="material-icons">notifications </i></a></li>
                      {{#if currentUser}}
                         <li><a href="#" class="data"></a></li>
-                       
                         {{#if admin}}
-                        <li><b>Admin</b></li>
+                        <li><b>Wellcome Admin</b></li>
                         <li><a href="{{pathFor route='signup'}}">Register</a></li>
+                        {{else}}
+                        <li><b>Wellcome {{user}}</b></li>
                         {{/if}}
                         
                         <li><a href="#" class="logout">Logout</a></li>

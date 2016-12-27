@@ -1,8 +1,8 @@
 
 // server/seed.js
 Meteor.startup(function() {
-    
-    if (Sites.find().count() < 1) {
+ //  process.env.MAIL_URL = "smtp://postmaster%40sandbox49d5ebacdddc4308b2ab9629300eb545.mailgun.org:174a3eeeb080d4f6aecd8934f5c5016b @smtp.mailgun.org:587";  
+     if (Sites.find().count() < 1) {
         var sites = [
             
                 {
@@ -210,7 +210,24 @@ Meteor.methods({
       
      return Meteor.users.findOne({'emails.address': email, roles: 'admin'});
         
+    },
+//     'createNewUser': function (username, email) {
+//     // i recommend to create user with initial password otherwise it will be empty string
+//     var userId = Accounts.createUser({username: username, email: email, password: 'initialPassword'});
+//         console.log(userId);
+//     Accounts.sendEnrollmentEmail(userId);
+//    },
+    'SendEmail' : function(to,from,sub,text){
+       // check([to,from,sub,text],[String]);
+       // this.unblock();
+        Email.send({
+            to: to,
+            from: from,
+            subject: sub,
+            text: text
+        });
     }
+   
 });
 
 

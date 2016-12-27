@@ -90,6 +90,10 @@ body {
 #signupContainer{
     padding: 20px;  
 }
+#signupContainer fieldset{
+      border: solid 2px #16a085;
+      padding: 20px;
+}
 
 #login_container{
     width: 500px;

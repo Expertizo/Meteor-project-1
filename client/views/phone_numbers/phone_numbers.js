@@ -15,7 +15,10 @@ Template.phone_number.helpers({
         console.log('Template---------------');
         console.log(Template.instance().P_result.get());
         return Template.instance().P_result.get();
-    }
+    },
+    admin: function() {
+          return Roles.userIsInRole(Meteor.userId(), 'admin');
+     }
 });
 Template.phone_number.events({
      'change #status_select': function(event,template) {

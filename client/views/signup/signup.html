@@ -40,12 +40,20 @@
         <!--start container-->
           <div class="container"  id="signupContainer">
               <div class="row s12 form_container">
-                <fieldset>
+                <fieldset style="width: 500px;">
                     <legend>Client Registeration </legend>
                 <form class="signup">
                   <div class="row col s12">
+                    <label>Username</label>
+                    <input type="text" name="client_name" required>
+                  </div>
+                  <div class="row col s12">
                     <label>Client Email</label>
                     <input type="email" name="client_email" required>
+                  </div>
+                  <div class="row col s12">
+                    <label>Client Password</label>
+                    <input type="password" name="client_password" required>
                   </div>
                   <div class="row col s12">
                          <input type='submit' style="float: right;" value='Register' name='submit' class='btn col s12'>
