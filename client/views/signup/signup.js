@@ -1,7 +1,7 @@
 Template.signup.events({
 	"submit .signup" : function(event){
-         var username = event.target.client_email.value;
-         var email = event.target.client_name.value;
+        //  var username = event.target.client_email.value;
+        //  var email = event.target.client_name.value;
         // Meteor.call(createNewUser,email,username,function(err,res) {
         //     if(res){
         //         alert("Success");
@@ -23,47 +23,54 @@ Template.signup.events({
 	//	var confirm_passsword = trimInput(event.target.confirm_password.value);
 		var C_name = trimInput(event.target.client_name.value);
 		//var last_name = trimInput(event.target.last_name.value);
-		Accounts.createUser({
-			email:C_email,
-			password:C_password,
-			profile:{
-				name:C_name
-			}
-		},function(err){
+            Meteor.call('Create_Client',C_email,C_password,C_name,function(err)
+                {
 			if(err){
-				MaterializeModal.message({
-					title:'Error',
-					message:'There was some error while Signup'
-				});
-                alert("Client Not Registered.");
+				alert("Client Not Registered.");
 			}else{
-				MaterializeModal.message({
-					title:'Success',
-					message:'Account Created! You are now logged In'
-				});
-                alert("Client Successfully Registered.");
-				// Meteor.loginWithPassword(email,password,function(err){
-				// 	if(err){
-				// 		event.target.C_email.value = email;
-				// 		event.target.C_password.value = password;
-				// 		MaterializeModal.message({
-				// 			title:'Error',
-				// 			message:'err.reason'
-				// 		});
-				// 	} else {
-				// 		FlashMessages.sendSuccess("You are now logged In");
-				// 		Router.go('home.html');
-				// 	}
-				// });
+				alert(C_name+" (Client) Successfully Registered!");
+                $('.signup')[0].reset();
+                }
+                });
+                
+		// Accounts.createUser({
+		// 	email:C_email,
+		// 	password:C_password,
+		// 	profile:{
+		// 		name:C_name
+		// 	}
+		// },function(err){
+		// 	if(err){
+		// 		alert("Client Not Registered.");
+		// 	}else{
+		// 		alert(C_name+" (Client) Successfully Registered!");
+        //         $('.signup')[0].reset();
+      	
+        //   		// Meteor.loginWithPassword(email,password,function(err){
+		// 		// 	if(err){
+		// 		// 		event.target.C_email.value = email;
+		// 		// 		event.target.C_password.value = password;
+		// 		// 		MaterializeModal.message({
+		// 		// 			title:'Error',
+		// 		// 			message:'err.reason'
+		// 		// 		});
+		// 		// 	} else {
+		// 		// 		FlashMessages.sendSuccess("You are now logged In");
+		// 		// 		Router.go('home.html');
+		// 		// 	}
+		// 		// });
 				
-			}
+		// 	}
 
-		});
-		$('.signup')[0].reset();
-	    Router.go('home');
-    	return false;
-	 
+		// });
+		//Router.go('home');
+    	
+        return false;
+	},
+    'click .BTD':function(){
+        Router.go('home');
     }
+     
 });
 
 //trim inputs

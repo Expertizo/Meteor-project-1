@@ -1,0 +1,25 @@
+<template name="admin_fview">
+    {{>header}}
+    <div id="main">
+        <div class="wrapper">
+            {{>sideNav}}
+        </div>
+    </div>    
+    <div class="container">
+      <ul class="collection with-header" style="width: 450px;">
+        <li class="collection-header"><h5>Clients</h5></li>
+        {{#each client}}
+            {{> clients}}
+        {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="clients">
+    <li class="collection-item">
+        <div>{{profile.name}}<a href="#!" class="secondary-content link">
+            <i class="material-icons">add</i>
+            </a>
+            </div>
+            </li>
+</template>

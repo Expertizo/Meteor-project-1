@@ -91,7 +91,7 @@ Meteor.startup(function() {
   
 
 });
-  Meteor.publish("sites", function (lmt) {
+  Meteor.publish("sites", function (lmt) {  
       return Sites.find({},{limit: lmt});
   });
   Meteor.publish("phone_number", function () {
@@ -103,6 +103,9 @@ Meteor.startup(function() {
   Meteor.publish('SelectedItem', function (id) {
 //Make sure you check your inputs you dont want someone sending in an object like { $ne : '' } and publishing everything
 	return Sites.findOne({_id : id });
+});
+Meteor.publish('userList', function (){ 
+  return Meteor.users.find({});
 });
 //   Meteor.publish("sites", function (name) {
 //       return Sites.find({account_name: name});
@@ -211,22 +214,31 @@ Meteor.methods({
      return Meteor.users.findOne({'emails.address': email, roles: 'admin'});
         
     },
+    'Create_Client': function(Email,Pass,Name){
+        Accounts.createUser({
+			email:Email,
+			password:Pass,
+			profile:{
+				name:Name
+			}
+        });
+    }
 //     'createNewUser': function (username, email) {
 //     // i recommend to create user with initial password otherwise it will be empty string
 //     var userId = Accounts.createUser({username: username, email: email, password: 'initialPassword'});
 //         console.log(userId);
 //     Accounts.sendEnrollmentEmail(userId);
 //    },
-    'SendEmail' : function(to,from,sub,text){
-       // check([to,from,sub,text],[String]);
-       // this.unblock();
-        Email.send({
-            to: to,
-            from: from,
-            subject: sub,
-            text: text
-        });
-    }
+    // 'SendEmail' : function(to,from,sub,text){
+    //    // check([to,from,sub,text],[String]);
+    //    // this.unblock();
+    //     Email.send({
+    //         to: to,
+    //         from: from,
+    //         subject: sub,
+    //         text: text
+    //     });
+    // }
    
 });
 

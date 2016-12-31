@@ -69,7 +69,10 @@ Router.map(function () {
         path: '/insert_site',
         template: 'insertSite'
     });
-    
+    this.route('adminView', {
+       path: '/adminView',
+       template: 'admin_fview' 
+    });
 })
  // function (params) {
         //     this.render('data',{
