@@ -10,7 +10,7 @@ Template.sites.onCreated(function() {
 });
 
 Template.sites.helpers({
-    tables: function () {
+    Admin_tables: function () {
         return Sites.find();
     },
     searchData: function (self) {

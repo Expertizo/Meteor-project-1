@@ -66,7 +66,9 @@ Template.insertSite.events({
                     I_phone_number: Internet_Phone_Number,
                     I_public_ip_address: Internet_Public_IP_Address,
                     IT_service_provider: IT_Service_Provider,
-                    IT_phone_number: IT_Phone_Number
+                    IT_phone_number: IT_Phone_Number,
+                    haveClient:[]
+                    
         },function (err) {
             if(err){
                 alert("Not data Inserted");

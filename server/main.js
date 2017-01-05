@@ -2,6 +2,13 @@
 // server/seed.js
 Meteor.startup(function() {
  //  process.env.MAIL_URL = "smtp://postmaster%40sandbox49d5ebacdddc4308b2ab9629300eb545.mailgun.org:174a3eeeb080d4f6aecd8934f5c5016b @smtp.mailgun.org:587";  
+
+  
+
+    // Meteor.methods({
+        
+    // });
+    
      if (Sites.find().count() < 1) {
         var sites = [
             
@@ -24,7 +31,8 @@ Meteor.startup(function() {
                     I_phone_number: '018485485',
                     I_public_ip_address: '47.548.485.42',
                     IT_service_provider: 'Absam',
-                    IT_phone_number: '03484818484'
+                    IT_phone_number: '03484818484',
+                    haveClient:[]
                 },
                 {
                     address: 'Bahadurabad Karachi',
@@ -45,7 +53,8 @@ Meteor.startup(function() {
                     I_phone_number: '018485485',
                     I_public_ip_address: '47.548.485.42',
                     IT_service_provider: 'Absam',
-                    IT_phone_number: '03484818484'
+                    IT_phone_number: '03484818484',
+                    haveClient:[]
                 },
                 {
                     address: 'Pathankot India',
@@ -66,7 +75,8 @@ Meteor.startup(function() {
                     I_phone_number: '018485485',
                     I_public_ip_address: '47.548.485.42',
                     IT_service_provider: 'Absam',
-                    IT_phone_number: '03484818484'
+                    IT_phone_number: '03484818484',
+                    haveClient:[]
                 }
             
         ];
@@ -77,7 +87,7 @@ Meteor.startup(function() {
     }
     
     
-   if(!Meteor.users.findOne({roles: "admin"})){
+     if(!Meteor.users.findOne({roles: "admin"})){
    
        Accounts.createUser({
         role: "admin",
@@ -85,11 +95,11 @@ Meteor.startup(function() {
         user_name: "admin",
         password: "admin",
         
-    });
+      });
         Roles.addUsersToRoles(Meteor.users.findOne({email: Accounts.email}),'admin');
-    }
-  
-
+    }   
+    
+    
 });
   Meteor.publish("sites", function (lmt) {  
       return Sites.find({},{limit: lmt});
@@ -102,11 +112,14 @@ Meteor.startup(function() {
   });   
   Meteor.publish('SelectedItem', function (id) {
 //Make sure you check your inputs you dont want someone sending in an object like { $ne : '' } and publishing everything
-	return Sites.findOne({_id : id });
-});
-Meteor.publish('userList', function (){ 
-  return Meteor.users.find({});
-});
+	 return Sites.findOne({_id : id });
+  });
+  Meteor.publish('userList', function (){ 
+     return Meteor.users.find({});
+  });
+  Meteor.publish('AllSites',function(){
+     return Sites.find();
+  });
 //   Meteor.publish("sites", function (name) {
 //       return Sites.find({account_name: name});
 //   })
@@ -218,10 +231,16 @@ Meteor.methods({
         Accounts.createUser({
 			email:Email,
 			password:Pass,
-			profile:{
+            profile:{
 				name:Name
-			}
+            }
         });
+    },
+    'Assign_Client': function(id){
+        return Meteor.users.findOne({_id: id}).fetch();
+    },
+    'AssignSite': function(id,client) {
+             Sites.update({_id: id},{$addToSet: {haveClient: client}});
     }
 //     'createNewUser': function (username, email) {
 //     // i recommend to create user with initial password otherwise it will be empty string
@@ -244,6 +263,10 @@ Meteor.methods({
 
 
 
+    // Sites.onCreated(function(options, sites){
+    //         sites.haveSites = [];
+    //         return sites;
+    // });
 
 
 
