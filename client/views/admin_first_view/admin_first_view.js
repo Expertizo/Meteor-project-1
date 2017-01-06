@@ -21,7 +21,6 @@ Template.sit.events({
          ids[0] = S_id;
          console.log("========== Site id");
          console.log(S_id);
-         alert(ids[0]);
          alert("Site Selected");
     }
 });
@@ -29,7 +28,6 @@ Template.clients.events({
     'click .link':function(){
         C_id = this._id;
         ids[1] = C_id;
-        alert(ids[1]);
         
         console.log("========== Client id");
         console.log(C_id);

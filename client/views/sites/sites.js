@@ -13,6 +13,10 @@ Template.sites.helpers({
     Admin_tables: function () {
         return Sites.find();
     },
+    Client_table: function(){
+        var id = Meteor.userId();
+        return Sites.find({haveClient: {site: id}});
+    },
     searchData: function (self) {
         console.log('Template---------------');
         console.log(Template.instance().result.get());
