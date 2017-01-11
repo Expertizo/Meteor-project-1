@@ -71,9 +71,9 @@ Template.insertSite.events({
                     
         },function (err) {
             if(err){
-                alert("Not data Inserted");
+               sweetAlert("Oops...", "Something went wrong!", "error");
             }else{
-                alert("data Inserted");
+                swal("Done!", C_name+"Site successfully inserted!", "success")
                 Router.go('sites');
             }    
         });

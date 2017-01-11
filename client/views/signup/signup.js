@@ -26,9 +26,9 @@ Template.signup.events({
             Meteor.call('Create_Client',C_email,C_password,C_name,function(err)
                 {
 			if(err){
-				alert("Client Not Registered.");
+				sweetAlert("Client Not Registered", "Some mistake accured please solve them!", "error"); 
 			}else{
-				alert(C_name+" (Client) Successfully Registered!");
+				swal("Done!", C_name+" successfully registered!", "success")
                 $('.signup')[0].reset();
                 }
                 });
