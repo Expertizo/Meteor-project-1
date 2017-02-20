@@ -4,8 +4,9 @@
   Author: GeeksLabs
   Author URL: http://www.themeforest.net/user/geekslabs
 ================================================================================ -->
-<template name='assets'>
-    {{>header}}
+
+<template name='Assets'>
+     {{>header}}
     <!-- END HEADER -->
 
     <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -15,164 +16,105 @@
         <!-- START WRAPPER -->
         <div class="wrapper">
             {{>sideNav}}
-        
-  <!-- END WRAPPER -->
-  <section id='content'>
-        <h1>Assets</h1>
-  </section>
-        <div class="container">
-      
-      
-      <div id="form_box">
-         <fieldset>
-                     <legend>Add On-Site-Assets</legend>
-                     <form  class='assets-form'>
-                         <table id="addSiteTable">
-                             <tr>
-                                <td><label>Model Number</label><input type="text" name="modelNumber" required></td>
-                                <td><label>Serial Number</label><input type="text" name="serialNumber" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Manufacturer</label><input type="text" name="manufacturer" required></td>
-                                <td><label>Internal Ip Address</label><input type="text" name="internalIpAddress" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Public Ip Address</label><input type="text" name="publicIpAddress" required></td>
-                                <td><label>Revenue Generating</label><input type="text" name="revenueGenerating" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Status</label><input type="text" name="status" required></td>
-                                <td><label>Redundant Unit</label><input type="text" name="redundantUnit" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Miscelaneous</label><input type="text" name="miscelaneous" required></td>
-                                <td><label>Asset Type</label><input type="text" name="assetType" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Asset Subtype</label><input type="text" name="assetSubtype" required></td>
-                                <td><label>Rde</label><input type="text" name="rde" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Mac Address</label><input type="text" name="macAddress" required></td>
-                                <td><label>Location</label><input type="text" name="location" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Advanta Owned</label><input type="text" name="advantaOwned" required></td>
-                                <td><label>Vendor</label><input type="text" name="vendor" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Model Description</label><input type="text" name="modelDescription" required></td>
-                                <td><label>Date Purchase</label><input type="text" name="datePurchase" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Purchase Cost</label><input type="text" name="purchaseCost" required></td>
-                                <td><label>Purchase Order</label><input type="text" name="purchaseOrder" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Date Waranty Support Expires Date</label><input type="text" id="datePicker" name="dateWarantySupportExpiresDate" required></td>
-                                <td><label>Date Installed</label><input type="text" name="dateInstalled" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Date Of Next Scheduled Service</label><input type="text" name="dateOfNextScheduledService" required></td>
-                                <td><label>Date Last Upgraded</label><input type="text" name="dateLastUpgraded" required></td>
-                             </tr>
-                             <tr>
-                                <td><label>Version</label><input type="text" name="version" required></td>
-                                <td><label>Description</label><textarea name="description" required></textarea></td>
-                             </tr>
-                             
-                             <!--<tr>
-                                
-                                <td>
-                                    <select class="browser-default" id="select_DLS" required>
-                                        <option value="" disabled selected>Confirm DayLight Saving Time</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </td>
-                             </tr>-->
-                             <tr>
-                                <!--<td>
-                                    <select class="browser-default" id="select_OH" required>
-                                            <option value="" disabled selected>Search By Office Hours</option>
-                                            <option value="08:00 17:00">08:00 17:00</option>
-                                            <option value="10:00 15:00">10:00 15:00</option>
-                                            <option value="12:00 17:30">12:00 17:30</option>
-                                    </select>
-                                </td>-->
-                                    <input type="submit" style="margin-top:20px;float:right;" value="Add Asset" class="waves-effect waves-light btn">
-                             </tr>
-                             
-                         </table>
-                     </form>
-                 </fieldset>  
+            <!-- START CONTENT -->
+   <!--<section id="content">-->
+ 
+        <!--breadcrumbs start-->
+        <!--<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+          <div class="container">
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title">Sites</h5>
+                <ol class="breadcrumb">
+                  <li><a href="index.html">Dashboard</a>
+                  </li>
+                  <li><a href="#">Pages</a>
+                  </li>
+                  <li class="active">Sites</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>-->
+          <!--search bar starts-->
+        <!--<div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="text" name="search_field"  class="validate">
+                        <label for="email" data-error="wrong" data-success="right">Search</label>
+                    </div>
+                </div>
+            </form>
+        </div>-->
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate" style="display:inline;" name="text_field" placeholder="Search">
+          <!--<select class="browser-default" id="select">
+                <option value="" disabled selected>Search By Office Hours</option>
+                <option value="08:00 17:00">08:00 17:00</option>
+                <option value="10:00 15:00">10:00 15:00</option>
+                <option value="12:00 17:30">12:00 17:30</option>
+          </select>-->
+        </div>
+       
       </div>
-      
-      
-      
-      
-      
-      
-      <!--Old Form Starts Here -->
-
-                <!--<form class='assets-form' >
-                 <div class='box'>
-                    <input type='text' class='inputs' name='name1' placeholder='Name' required>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='ip_address' placeholder='IP address(es)' required>
-                 </div>
-                 We will want to filter on these.  Not Advanta owned. 
-                 <div class='box'>
-                    <input type='text' class='inputs' name='location1' placeholder='Location'>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='model' placeholder='Model'>
-                 </div>
-                  <div class='box'>
-                    <input type='text' class='inputs' name='mac' placeholder='MAC'>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='serial_number' placeholder='Serial Number'>
-                 </div>
-                  <div class='box'>
-                    <input type='text' class='inputs' name='other' placeholder='Other'>
-                 </div>
-                  <div class='box'>
-                    <input type='text' class='inputs' name='role' placeholder='Role'>
-                 </div>
-                  <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                  </select>
-                  <div class='box'>
-                    <input type='text' class='inputs' name='date_purchase' placeholder='Date Purchase'>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='date_installed' placeholder='Date Installed'>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='version1' placeholder='Version'>
-                 </div>
-                 <div class='box'>
-                    <input type='text' class='inputs' name='cost_with_shipping' placeholder='Cost with Shipping'>
-                 </div>     
-                 <div class='box'>
-                    <input type='text' class='inputs' name='working_notes' placeholder='Working notes'>
-                 </div>
-                 <div class='box'>
-                    <input type='submit' class='btn blue' value='Submit' name='submit'>
-                 </div>
-        </form>-->
-
-          <!--Old Form Ends Here-->
-
-
-    </div>
+      {{#if admin}}
+         <a style="float:right;margin-top:-90px;" class="btn-floating btn-large waves-effect waves-light red bottom" href="{{pathFor 'addAssets'}}"><i class="material-icons">add</i></a>
+      {{/if}} 
+    </form>
   </div>
-  <div id="modal1" class="modal">
+       <!--search bar ends-->
+       <div class="container">
+    <table class="highlight bordered centered " id="Site_table">
+        <thead>
+        <tr style="border-bottom: solid 2px #34495e;">
+            <th>Inventory Number</th>
+            <th>Model Number</th>
+            <th>Manufacturer</th>
+            <th>Public Ip Address Name</th>
+            <th>Status</th>
+            <th>Revenue Generating</th>
+            
+        </tr>
+        </thead>
+        {{#if admin}}
+            {{#if searchData}}
+                <!--Hello-->
+                {{#each searchData}}
+                    {{> Assetstab}}
+                {{/each}}
+            {{else}}
+            {{#each Admin_tables}}
+                {{> Assetstab}}
+            {{/each}}
+            {{/if}}
+        {{else}}
+            {{#each Client_table}}
+                {{> Assetstab}}
+            {{/each}}
+        {{/if}}
+       
+    </table>
+    </div>
+    {{#if loadBtn}}
+     
+    {{else}}
+         <button style="margin:10px;" class="waves-effect waves-light btn right" id="load" ><i class="material-icons right">add</i>Load More</button>
+    {{/if}}
+        <!--breadcrumbs end-->
+        <!--start container-->
+        <div class="container">
+            <form method='post' class='sites_form'>
+                
+            </form>
+        </div>
+      </div>
+      <div id="modal1" class="modal">
              <div class="modal-footer">
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
             </div>
@@ -184,6 +126,21 @@
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
           $('.modal-trigger').leanModal();
         });
+         $(document).ready(function() {
+          Materialize.updateTextFields();
+         });
     </script>
-</div>
+    </div>
+</template>
+
+<template name="Assetstab">
+    <tr style="border-bottom: solid 1px gray; text-align: center;" >
+        <td><a class="link">{{inv_num}}</a></td>
+        <td style="text-align: center;">{{model_number}}</td>
+        <td style="text-align: center;">{{manufacturer}}</td>
+        <td style="text-align: center;">{{public_ip_address}}</td>
+        <td style="text-align: center;">{{status}}</td>
+        <td style="text-align: center;">{{revenue_generating}}</td>
+        
+    </tr>
 </template>

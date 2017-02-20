@@ -1,0 +1,182 @@
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 1.0
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
+<template name='assets_detail'>
+    {{>header}}
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+             {{>sideNav}}
+            <!--{{#each data}}
+                <h1>{{owner}}</h1>
+            {{/each}}
+            -->
+           <table class="highlight bordered centered Table_detail" id="Site_table" >
+                <thead>
+                    <th colspan="6" style="text-align:center;font-size: 25px;color:#e67e22;border-bottom: solid 2px #16a085;">Assets Detail</th>
+                    
+                </thead>
+                <hr>
+                <br>
+                
+               
+                <br>
+                
+                <thead>
+                    
+                    <tr>
+                        <th colspan="6" style="text-align: left;">Inventory Number</th>   
+                    </tr>
+                    {{#each show}}
+                <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;" >
+                        <td style="text-align: center;">  <span style="color:#e67e22;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{inv_num}}</span></td>
+                </tr>
+                {{/each}}
+                    
+                    <hr>
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Model Number</th>
+                        <th>Serial Number</th>
+                        <th>Manufacturer</th>
+                        <th>Internal Ip Address</th>
+                        <th>Public Ip Address</th>
+                        <th>Revenue Generating</th>
+                    </tr>
+                </thead>
+                {{#each show}}
+                
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{model_number}}</td>
+                        <td style="text-align: center;">{{serial_number}}</td>
+                        <td style="text-align: center;">{{manufacturer}}</td>
+                        <td style="text-align: center;">{{internal_ip_address}}</td>
+                        <td style="text-align: center;">{{public_ip_address}}</td>
+                        <td style="text-align: center;">{{revenue_generating}}</td>
+                    </tr>
+                 
+                    <br>
+                     <thead>
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Status</th>
+                        <th>Redundant Unit</th>
+                        <th>Miscelaneous</th>
+                        <th>Asset Type</th>
+                        <th>Asset Subtype</th>
+                        <th>Rde</th>
+                    </tr>
+                </thead>
+                    
+                
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{status}}</td>
+                        <td style="text-align: center;">{{redundant_unit}}</td>
+                        <td style="text-align: center;">{{miscelaneous}}</td>
+                        <td style="text-align: center;">{{asset_type}}</td>
+                        <td style="text-align: center;">{{asset_subtype}}</td>
+                        <td style="text-align: center;">{{rde}}</td>
+                    </tr>
+                    
+                    
+                    <br>
+                    
+                     <thead>
+                    <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                        <th>Mac Address</th>
+                        <th>Location</th>
+                        <th>Advanta Owned</th>
+                        <th>Vendor</th>
+                        <th>Model Description</th>
+                        <th>Date Purchase</th>
+                        
+                    </tr>
+                </thead>
+                    
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{mac_address}}</td>
+                        <td style="text-align: center;">{{location}}</td>
+                        <td style="text-align: center;">{{advanta_owned}}</td>
+                        <td style="text-align: center;">{{vendor}}</td>
+                        <td style="text-align: center;">{{model_description}}</td>
+                        <td style="text-align: center;">{{date_purchase}}</td>
+                        
+                        
+                    </tr>
+                        
+                        <br>
+                        
+                    <thead>
+                        <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                            <th>Purchase Cost</th>
+                            <th>Purchase Order</th>
+                            <th>Date Waranty Support Expires Date</th>
+                            <th>Date Installed</th>
+                            <th>Date Of Next Scheduled Service</th>
+                            <th>Date Last Upgraded</th>
+                        </tr>
+                   </thead>
+                                        
+                     <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{purchase_cost}}</td>
+                        <td style="text-align: center;">{{purchase_order}}</td>
+                        <td style="text-align: center;">{{date_waranty_support_expires_date}}</td>
+                        <td style="text-align: center;">{{date_installed}}</td>
+                        <td style="text-align: center;">{{date_of_next_scheduled_service}}</td>
+                        <td style="text-align: center;">{{date_last_upgraded}}</td>
+                        
+                        
+                    </tr>
+                        
+                        <br>
+                    <thead>
+                        <tr style="border-bottom: solid 2px #e74c3c;color:#2c3e50;">
+                            <th>Version</th>
+                            <th>Description</th>
+                        </tr>
+                   </thead>
+                    <tr style="font-size: 17px;border-bottom: solid 1px #2c3e50;">
+                        <td style="text-align: center;">{{version}}</td>
+                        <td style="text-align: center;">{{description}}</td>
+                    </tr>
+
+                {{/each}}
+         
+          </table>
+            <!--<table>
+                 <tr>
+                   
+                    <td><a class="waves-effect waves-light btn">Legacy Data</a></td>
+                    <td><a class="waves-effect waves-light btn">Data Center</a></td>
+                    <td><a class="waves-effect waves-light btn">Photo/Docs</a></td>
+                    <td><a class="waves-effect waves-light btn">Account History</a></td>
+                    <td><a class="waves-effect waves-light btn">On-Site</a></td>
+                    
+                </tr>
+                <tr style="text-align:center;" >
+                    <td style="text-align:center;" colspan="6">
+                        <a class="waves-effect waves-light btn" style="margin-left:10px">Note</a>
+                        <a class="waves-effect waves-light btn" style="margin-left:10px">CDRs</a>
+                        <a class="waves-effect waves-light btn btnContact" style="margin-left:10px">Contact</a>
+                    </td>
+                    
+                </tr>
+            </table>-->
+        </div>
+        <!--{{#each show}}
+        <h1>{{owner}}</h1>
+        {{/each}}-->
+    </div>
+    <script>
+        $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+          $('.modal-trigger').leanModal();
+        });
+    </script>
+</template>

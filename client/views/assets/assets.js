@@ -1,102 +1,74 @@
-Template.assets.events({
-	"submit form": function(event){
-		
-		var userId = Meteor.userId();
-		if(userId == ''){
-			console.log("Please Login First");
-			return false;
-		}else{
-			event.preventDefault();
-			console.log("button working");
-			
-			var modelNumber = event.target.modelNumber.value;
-			var serialNumber = event.target.serialNumber.value;
-			var manufacturer = event.target.manufacturer.value;
-			var internalIpAddress = event.target.internalIpAddress.value;
-			var publicIpAddress = event.target.publicIpAddress.value;
-			var revenueGenerating = event.target.revenueGenerating.value;
-			var status = event.target.status.value;
-			var redundantUnit = event.target.redundantUnit.value;
-			var miscelaneous = event.target.miscelaneous.value;
-			var assetType = event.target.assetType.value;
-			var assetSubtype = event.target.assetSubtype.value;
-			var macAddress = event.target.macAddress.value;
-			var rde = event.target.rde.value;
-			var advantaOwned = event.target.advantaOwned.value;
-			var location = event.target.location.value;
-			var vendor = event.target.vendor.value;
-			var modelDescription = event.target.modelDescription.value;
-			var datePurchase = event.target.datePurchase.value;
-			var purchaseCost = event.target.purchaseCost.value;
-			var purchaseOrder = event.target.purchaseOrder.value;
-			var dateWarantySupportExpiresDate = event.target.dateWarantySupportExpiresDate.value;
-			var dateInstalled = event.target.dateInstalled.value;
-			var dateOfNextScheduledService = event.target.dateOfNextScheduledService.value;
-			var dateLastUpgraded = event.target.dateLastUpgraded.value;
-			var version = event.target.version.value;
-			var description = event.target.description.value;
-			
-			
-			assets.insert({
-                description: description,
-				model_number: modelNumber,
-				serial_number: serialNumber,
-				manufacturer: manufacturer,
-				internal_ip_address: internalIpAddress,
-				public_ip_address: publicIpAddress,
-				revenue_generating: revenueGenerating,
-				status: status,
-				redundant_unit: redundantUnit,
-				miscelaneous: miscelaneous,
-				asset_type: assetType,
-				asset_subtype: assetSubtype,
-				rde: rde,
-				mac_address: macAddress,
-				location: location,
-				advanta_owned: advantaOwned,
-				vendor: vendor,
-				model_description: modelDescription,
-				date_purchase: datePurchase,
-				purchase_cost: purchaseCost,
-				purchase_order: purchaseOrder,
-				date_waranty_support_expires_date: dateWarantySupportExpiresDate,
-				date_installed: dateInstalled,
-				date_of_next_scheduled_service: dateOfNextScheduledService,
-				date_last_upgraded: dateLastUpgraded,
-				version: version,
-                CreatedAt : new Date()
-				// userId:userId,
-				// name:name,
-				// type:type,	
-				// critical:critical,
-				// ip_address:ip_address,
-				// location:location,
-				// modal:model,
-				// mac:mac,
-				// serial_number:serial_number,
-				// other:other,
-				// role:role,
-				// date_purchase:date_purchase,
-				// date_installed:date_installed,
-				// version:version,
-				// cost_with_shipping:cost_with_shipping,
-				// working_notes:working_notes,
+var lmt = 5;
+Template.Assets.onCreated(function() {
+  console.log('onCreated');
+  Meteor.subscribe("assets",lmt);
+ //  this.data= {};
+  this.result = new ReactiveVar();
+  this.load = new ReactiveVar();
+  
+  console.log(this);
+});
 
-				
-			},function (err) {
-            if(err){
-               sweetAlert("Oops...", "Something went wrong!", "error");
-            }else{
-                swal("Done!","Site successfully inserted!", "success")
-                Router.go('sites');
-            }
-			
-			});
-		}
-		//   $( function() {
-        //  $( "#datePicker" ).datepicker();
-        // } );
-		$('.assets-form')[0].reset();
-			return false;
-	}
+Template.Assets.helpers({
+    Admin_tables: function () {
+        return assets.find();
+    },
+    Client_table: function(){
+        var id = Meteor.userId();
+        return Assets.find({haveClient: {site: id}});
+    },
+    searchData: function (self) {
+        console.log('Template---------------');
+        console.log(Template.instance().result.get());
+        return Template.instance().result.get();
+    },
+    loadBtn: function () {
+        
+        console.log("load helpers");
+        console.log(Template.instance().load.get());
+        return Template.instance().load.get();
+             
+    },
+    admin: function() {
+          return Roles.userIsInRole(Meteor.userId(), 'admin');
+     }
+    
+});
+
+Template.Assets.events({
+    'click #load': function (e,template) {
+        lmt += 5;
+        var clientTotal = assets.find().count(); //5
+        Meteor.call("Assets_count",clientTotal,function(err,response) {
+            template.load.set(response);
+        });
+      
+        return Meteor.subscribe("assets",lmt); 
+     },
+    'keyup input': function(event,template) {
+        val = event.target.value;
+        Meteor.call("Assets_search", val, function(error,response) {
+        template.result.set(response);
+            
+        });
+
+     }
+    //  ,
+    //  'change #select': function(event,template) {
+    //          value  = event.target.value;
+    //          Meteor.call("search_status", value, function(err,res) {
+    //          template.result.set(res);
+            
+    //     });
+         
+    //  }
+});
+Template.Assetstab.events({
+    'click .link': function() {
+        var id = this._id;
+        console.log(id)
+        //console.log(assets.find({},{_id: id}).fetch()); 
+        Router.go('assets_detail',{id: id}); //:_id',{_id: id});'
+    },
+   
 });

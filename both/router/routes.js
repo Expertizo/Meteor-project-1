@@ -3,9 +3,9 @@ Router.map(function () {
         path: '/',
         template: 'home'
     });
-    this.route('assets', {
-        path: '/assets',
-        template: 'assets'
+    this.route('Assets', {
+        path: '/Assets',
+        template: 'Assets'
     });
     this.route('contacts', {
         path: '/contacts',
@@ -73,11 +73,14 @@ Router.map(function () {
        path: '/adminView',
        template: 'admin_fview' 
     });
+    this.route('addAssets', {
+       path: '/addAssets',
+       template: 'addAssets' 
+    });
+  
+    this.route('assets_detail', {
+       path: '/assets_detail/:id',
+       template: 'assets_detail' 
+    });
+    
 })
- // function (params) {
-        //     this.render('data',{
-        //         data: function() {
-        //             return Sites.findOne({_id: this.params.id}); 
-        //     }
-        //     });         
-        //}

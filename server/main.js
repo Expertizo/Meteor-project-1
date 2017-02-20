@@ -104,6 +104,9 @@ Meteor.startup(function() {
   Meteor.publish("sites", function (lmt) {  
       return Sites.find({},{limit: lmt});
   });
+  Meteor.publish("assets", function (lmt) {  
+      return assets.find({},{limit: lmt});
+  });
   Meteor.publish("phone_number", function () {
       return phone_numbers.find();
   });
@@ -120,6 +123,10 @@ Meteor.startup(function() {
   Meteor.publish('AllSites',function(){
      return Sites.find();
   });
+  Meteor.publish('AllAssets',function(){
+     return assets.find();
+  });
+  
 //   Meteor.publish("sites", function (name) {
 //       return Sites.find({account_name: name});
 //   })
@@ -155,6 +162,46 @@ Meteor.methods({
         }).fetch();
         
     },
+     'Assets_search': function(val) {
+       // console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
+       //  return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
+        return assets.find({
+            $or: [
+                {inv_num: {$regex: val,$options: '-i'}},
+                {description: {$regex: val,$options: '-i'}},
+                {model_number: {$regex: val,$options: '-i'}},
+                {serial_number: {$regex: val,$options: '-i'}},
+                {manufacturer: {$regex: val,$options: '-i'}},
+                {internal_ip_address: {$regex: val,$options: '-i'}},
+                {public_ip_address: {$regex: val,$options: '-i'}},
+                {revenue_generating: {$regex: val,$options: '-i'}},
+                {status: {$regex: val,$options: '-i'}},
+                {redundant_unit: {$regex: val,$options: '-i'}},
+                {miscelaneous: {$regex: val,$options: '-i'}},
+                {asset_type: {$regex: val,$options: '-i'}},
+                {asset_subtype: {$regex: val,$options: '-i'}},
+                {rde: {$regex: val,$options: '-i'}},
+                {mac_address: {$regex: val,$options: '-i'}},
+                {location: {$regex: val,$options: '-i'}},
+                {advanta_owned: {$regex: val,$options: '-i'}},
+                {vendor: {$regex: val,$options: '-i'}},
+                {model_description: {$regex: val,$options: '-i'}},
+                {date_purchase: {$regex: val,$options: '-i'}},
+                {purchase_cost: {$regex: val,$options: '-i'}},
+                {purchase_order: {$regex: val,$options: '-i'}},
+                {date_waranty_support_expires_date: {$regex: val,$options: '-i'}},
+                {date_installed: {$regex: val,$options: '-i'}},
+                {date_of_next_scheduled_service: {$regex: val,$options: '-i'}},
+                {date_last_upgraded: {$regex: val,$options: '-i'}},
+                {version: {$regex: val,$options: '-i'}},
+                
+    
+                
+            ]
+        }).fetch();
+        
+    },
+    
     'phone_search': function(val) {
        // console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
        //  return Sites.find({ account_name: {$regex: val,$options: '-i'}}).fetch();
@@ -185,6 +232,7 @@ Meteor.methods({
       //  return Sites.find({office_hours: val}).fetch();
         
     },
+
     'search_phone_status': function(val) {
         //console.log(Sites.find({ account_name: {$regex: /Kashif/}}    ).fetch());
          return phone_numbers.find({status:val}).fetch();
@@ -207,6 +255,21 @@ Meteor.methods({
                 return false;
            }
     },
+    'Assets_count': function(clientCount){
+        var serverCount = assets.find().count(); //23
+        console.log("Client....");
+        console.log(clientCount);
+        console.log("Server....");
+         console.log(serverCount);
+         
+            if(clientCount == serverCount){
+                console.log("comparing....");
+                return true;
+            }else{
+                return false;
+           }
+    },
+    
     'admin_login_e': function(email){
      
         // console.log(Meteor.users.find({'emails.address': email, roles: 'admin'}));
